@@ -1,5 +1,5 @@
 [0g]
-0g_main ansible_host=143.198.94.102 type=test
+0g_test ansible_host=143.198.94.102 type=test
 
 [all:vars]
 ansible_user=root
