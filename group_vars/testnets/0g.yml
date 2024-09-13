@@ -1,4 +1,4 @@
-network: 0g-chain
+network: 0gtestnet
 folder: '.0gchain'
 daemon: 0gchaind
 chain_id: zgtendermint_16600-2

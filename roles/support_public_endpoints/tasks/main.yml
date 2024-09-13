@@ -111,7 +111,7 @@
 
 - name: Create rpc endpoint
   cloudflare_dns:
-    zone: polkachu.com
+    zone: grandvalleys.com
     record: '{{ rpc }}'
     type: A
     value: '{{ ansible_host }}'
@@ -121,7 +121,7 @@
 
 - name: Create api endpoint
   cloudflare_dns:
-    zone: polkachu.com
+    zone: grandvalleys.com
     record: '{{ api }}'
     type: A
     value: '{{ ansible_host }}'
@@ -131,7 +131,7 @@
 
 - name: Create grpc endpoint
   cloudflare_dns:
-    zone: polkachu.com
+    zone: grandvalleys.com
     record: '{{ grpc }}'
     type: A
     value: '{{ ansible_host }}'
