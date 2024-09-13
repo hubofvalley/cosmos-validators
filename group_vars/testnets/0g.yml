@@ -1,4 +1,4 @@
-network: 0g
+network: 0g-chain
 folder: '.0gchain'
 daemon: 0gchaind
 chain_id: zgtendermint_16600-2
