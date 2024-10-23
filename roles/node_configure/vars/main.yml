@@ -31,7 +31,7 @@ pruning_archive:
 pruning_test:
   'pruning = "': 'pruning = "custom"'
   'pruning-keep-recent = "': 'pruning-keep-recent = "100"'
-  'pruning-interval = "': 'pruning-interval = "17"'
+  'pruning-interval = "': 'pruning-interval = "50"'
   'snapshot-interval = ': 'snapshot-interval = 0'
 pruning_testrelay:
   'pruning = "': 'pruning = "custom"'

@@ -1,0 +1,6 @@
+---
+- name: set dns_prefix for 0g
+  set_fact:
+    rpc: 'lightnode-{{ network }}-rpc-0g'
+    api: 'lightnode-{{ network }}-api-0g'
+    grpc: 'lightnode-{{ network }}-grpc-0g'
