@@ -1,0 +1,19 @@
+---
+- name: Deploy and execute server information script
+  hosts: all
+  become: yes # Use sudo to elevate privileges
+  tasks:
+    - name: Copy server information script to target servers
+      ansible.builtin.copy:
+        src: server_info.sh
+        dest: "{{ ansible_env.HOME }}/server_info.sh"
+        mode: "0755" # Grant read, write, and execute permissions to the owner, and read and execute permissions to others
+
+    - name: Execute the server information script
+      ansible.builtin.shell: |
+        {{ ansible_env.HOME }}/server_info.sh
+      register: script_output
+
+    - name: Display script output
+      ansible.builtin.debug:
+        msg: "{{ script_output.stdout }}"

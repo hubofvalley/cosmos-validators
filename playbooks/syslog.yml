@@ -1,0 +1,10 @@
+---
+- name: Truncate syslog files
+  hosts: all
+  become: yes
+  tasks:
+    - name: Truncate /var/log/syslog
+      command: truncate -s 0 /var/log/syslog
+
+    - name: Truncate /var/log/syslog.1
+      command: truncate -s 0 /var/log/syslog.1

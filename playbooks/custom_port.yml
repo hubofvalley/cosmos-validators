@@ -1,0 +1,19 @@
+- name: Modify configuration files
+  hosts: your_hosts
+  vars:
+    config_files:
+      - /path/to/your/config.toml
+      - /path/to/your/app.toml
+  tasks:
+    - name: Replace lines in configuration files
+      lineinfile:
+        path: "{{ item }}"
+        regexp: '{{ item.split("/")[-1] }}:{{ old_port }}'
+        line: '{{ item.split("/")[-1] }}:{{ custom_port_prefix }}{{ new_port }}'
+        backrefs: yes
+      with_nested:
+        - "{{ config_files }}"
+        - ["26656", "26657", "26658", "26660", "6060", "1317", "8080", "9090", "9091"]
+      vars:
+        old_port: "{{ item[1] }}"
+        new_port: "{{ item[1] | regex_replace('^(.)(.)$', '\\2') }}"

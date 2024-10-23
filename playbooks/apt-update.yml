@@ -1,0 +1,25 @@
+---
+- name: Install packages and update system
+  hosts: all
+  become: yes # Use sudo to elevate privileges
+  tasks:
+    - name: Update apt package index
+      ansible.builtin.apt:
+        update_cache: yes
+
+    - name: Install essential packages
+      ansible.builtin.apt:
+        name:
+          - clang
+          - cmake
+          - build-essential
+          - git
+          - libssl-dev
+          - pkg-config
+          - protobuf-compiler
+          - llvm
+          - llvm-dev
+          - nginx
+          - certbot
+          - python3-certbot-nginx
+        state: present
