@@ -1,6 +1,6 @@
 ---
 - name: Truncate syslog files
-  hosts: all
+  hosts: '{{ target }}'
   become: yes
   tasks:
     - name: Truncate /var/log/syslog
