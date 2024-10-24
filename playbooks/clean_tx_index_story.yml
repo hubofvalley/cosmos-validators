@@ -1,0 +1,23 @@
+---
+- name: Manage story service and clean up data
+  hosts: '{{ target }}'
+  become: yes
+  tasks:
+    - name: Stop story service
+      systemd:
+        name: story
+        state: stopped
+
+    - name: Remove tx_index.db file
+      file:
+        path: "{{ ansible_env.HOME }}/.story/story/data/tx_index.db"
+        state: absent
+
+    - name: Reload systemd daemon
+      systemd:
+        daemon_reload: yes
+
+    - name: Restart story service
+      systemd:
+        name: story
+        state: restarted
