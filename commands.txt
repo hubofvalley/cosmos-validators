@@ -2,4 +2,4 @@ ansible-playbook -i inventory_testnet.ini main.yml -e "target=0g"
 
 ansible-playbook -i inventory_testnet.ini playbooks/syslog.yml -e "target=all"
 
-ansible-playbook -i inventory_testnet.ini playbooks/syslog.yml -e "target=0g"
+ansible-playbook -i inventory_testnet.ini playbooks/clean_tx_index.yml -e "target=0g"
