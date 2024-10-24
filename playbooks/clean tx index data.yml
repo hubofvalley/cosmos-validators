@@ -1,0 +1,23 @@
+---
+- name: Manage 0gchaind service and clean up data
+  hosts: '{{ target }}'
+  become: yes
+  tasks:
+    - name: Stop 0gchaind service
+      systemd:
+        name: 0gchaind
+        state: stopped
+
+    - name: Remove tx_index.db file
+      file:
+        path: "{{ ansible_env.HOME }}/.0gchain/data/tx_index.db"
+        state: absent
+
+    - name: Reload systemd daemon
+      systemd:
+        daemon_reload: yes
+
+    - name: Restart 0gchaind service
+      systemd:
+        name: 0gchaind
+        state: restarted
