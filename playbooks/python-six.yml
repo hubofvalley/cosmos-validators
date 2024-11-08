@@ -1,0 +1,15 @@
+- name: Prepare remote hosts for Ansible
+  hosts: all
+  tasks:
+    - name: Install six module
+      pip:
+        name: six
+        state: present
+
+    - name: Check Python version
+      command: python3 --version
+      register: python_version
+
+    - name: Display Python version
+      debug:
+        msg: "Python version is {{ python_version.stdout }}"
