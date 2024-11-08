@@ -8,10 +8,10 @@
         name: 0gchaind
         state: stopped
 
-    - name: Remove tx_index.db file
-      file:
-        path: "{{ ansible_env.HOME }}/.0gchain/data/tx_index.db"
-        state: absent
+    - name: Remove tx_index.db directory
+      command: sudo rm -r "{{ ansible_env.HOME }}/.story/story/data/tx_index.db"
+      args:
+        removes: "{{ ansible_env.HOME }}/.story/story/data/tx_index.db"
 
     - name: Reload systemd daemon
       systemd:
