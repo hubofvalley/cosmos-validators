@@ -1,0 +1,9 @@
+---
+- name: Restart zgs service on target hosts
+  hosts: ovh  # Replace with your actual target host group or hostname
+  become: yes  # Allows Ansible to use sudo
+  tasks:
+    - name: Restart zgs service
+      ansible.builtin.systemd:
+        name: zgs
+        state: restarted

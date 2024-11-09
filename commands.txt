@@ -5,3 +5,5 @@ ansible-playbook -i inventory_testnet.ini playbooks/syslog.yml -e "target=all"
 ansible-playbook -i inventory_testnet.ini playbooks/clean_tx_index_0g.yml -e "target=0g"
 
 ansible-playbook -i inventory_testnet.ini playbooks/clean_tx_index_story.yml -e "target=ovh"
+
+ansible-playbook -i inventory_testnet.ini playbooks/restart-zgs.yml -e "target=ovh"
