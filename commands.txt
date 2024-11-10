@@ -6,4 +6,4 @@ ansible-playbook -i inventory_testnet.ini playbooks/clean_tx_index_0g.yml -e "ta
 
 ansible-playbook -i inventory_testnet.ini playbooks/clean_tx_index_story.yml -e "target=ovh"
 
-ansible-playbook -i inventory_testnet.ini playbooks/restart-zgs.yml -e "target=ovh"
+ansible-playbook -i inventory_testnet.ini playbooks/clean_tx_index_story.yml -e "target=ovh"
